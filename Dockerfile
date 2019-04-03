@@ -5,6 +5,7 @@ RUN mkdir /myapp
 WORKDIR /myapp
 COPY app /myapp/app
 COPY entrypoint.sh /myapp/
+COPY wsgi.py /myapp/
 
 RUN pip install -r requirements.txt && pip install uwsgi
 RUN chmod +x entrypoint.sh
