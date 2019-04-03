@@ -18,11 +18,13 @@ else:
 class BaseConfig:
     SECRET_KEY = os.getenv('SECRET_KEY', 'a default secret string')
 
+    COOKIE_POOL = 'http://10.42.1.23:5010/rmhnair/random'
+
     CACHE_TYPE = 'redis'
     CACHE_REDIS_HOST = '10.42.1.74'
     CACHE_REDIS_PORT = 6179
     CACHE_REDIS_DB = os.getenv('CACHE_REDIS_DB') or ''
-    CACHE_REDIS_PASSWORD = os.getenv('CHCHE_REDIS_PASSWORD') or 'Xphk@2018'
+    CACHE_REDIS_PASSWORD = os.getenv('CHCHE_REDIS_PASSWORD') or ''
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True

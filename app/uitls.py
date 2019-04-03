@@ -8,6 +8,7 @@ from flask import jsonify
 from werkzeug.wrappers import Response
 from itertools import groupby
 from operator import itemgetter
+from app.config import BaseConfig
 
 
 class MyEncoder(json.JSONEncoder):
@@ -27,7 +28,7 @@ class JsonResponse(Response):
 
 async def _sync_data(being_date_str, end_date_str, dep_code, arv_code):
     async with aiohttp.ClientSession() as session:
-        async with session.get('http://10.42.11.226:5020/rmhnair/random', timeout=30) as resp:
+        async with session.get(BaseConfig.COOKIE_POOL, timeout=30) as resp:
             if resp.status == 200:
                 cookies = await resp.text()
                 cookies = json.loads(cookies)

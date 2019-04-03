@@ -35,3 +35,9 @@ class User(db.Model):
         except:
             return None
         return User.query.get(data['id'])
+
+    @staticmethod
+    def init_user():
+        user = User(username='rmhnair', passwrod='rmhnair@2019')
+        db.session.add(user)
+        db.session.commit()

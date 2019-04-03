@@ -1,6 +1,7 @@
 #!/usr//bin/env/python3
 # -*- coding:utf-8 -*-
 __author__ = 'Hiram Zhang'
+import click
 from flask import Flask
 from .uitls import JsonResponse, MyEncoder
 from .config import BaseConfig
@@ -21,5 +22,13 @@ def create_app():
     @app.shell_context_processor
     def make_shell_context():
         return dict(db=db, User=User, cache=cache)
+
+    @app.cli.command()
+    def init():
+        """Initialize app."""
+        click.echo('Initializing the database...')
+        db.drop_all()
+        db.create_all()
+        User.init_user()
 
     return app

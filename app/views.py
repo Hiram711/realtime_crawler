@@ -6,12 +6,11 @@ import asyncio
 from datetime import datetime, timedelta
 from .caching import cache
 from itertools import groupby
-from operator import itemgetter
 
 main_bp = Blueprint('main', __name__)
 
 index_info = {
-    'token': 'get a token for auth',
+    '/token': 'get a token for auth',
     '/rmhnair/realtime?beginDate=2018-01-01&endDate=2018-01-05&dep=KMG&arv=SHA': 'get realtime data'
 }
 
