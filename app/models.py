@@ -38,6 +38,6 @@ class User(db.Model):
 
     @staticmethod
     def init_user():
-        user = User(username='rmhnair', passwrod='rmhnair@2019')
+        user = User(username='rmhnair', password='rmhnair@2019')
         db.session.add(user)
         db.session.commit()
